@@ -1,7 +1,7 @@
 import '../entities/book/book.dart';
 
-abstract class BookDatasouerce {
+abstract class BooksDatasource {
   
-  Future<List<Book>> getNowPlaying({int page = 1});  
+  Future<List<Book>> getNowReading({int addBooks = 1});  
 
 }
