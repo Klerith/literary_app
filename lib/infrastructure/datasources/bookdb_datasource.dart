@@ -1,9 +1,12 @@
 import 'package:dio/dio.dart';
+
 import 'package:literary_app/config/constants/environment.dart';
-
-
 import 'package:literary_app/domain/datasources/books_datasource.dart';
+
+
 import 'package:literary_app/domain/entities/book/book.dart';
+import 'package:literary_app/infrastructure/mappers/book_mapper.dart';
+import 'package:literary_app/infrastructure/models/bookdb/bookdb_response.dart';
 
 class BookdbDatasource extends BooksDatasource {
 
@@ -25,7 +28,13 @@ class BookdbDatasource extends BooksDatasource {
       'maxResults': '10',
     });
 
-    final List<Book> books = [];
+    final bookDBResponse = BookDbResponse.fromJson(response.data);
+
+    final List<Book> books = bookDBResponse.items
+    .where((bookdb) => bookdb.volumeInfo.imageLinks != 'no-poster')
+    .map(
+      (bookdb) => BookMapper.bookDBToEntity(bookdb)
+      ).toList();
 
     return books;
   }

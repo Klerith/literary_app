@@ -5,16 +5,14 @@ class BookBookDB {
     final String id;
     final String etag;
     final String selfLink;
-    final BookBookDetailsDB bookDetails;
-    final String searchInfo;
+    final BookBookDetailsDB volumeInfo;
 
     BookBookDB({
         required this.kind,
         required this.id,
         required this.etag,
         required this.selfLink,
-        required this.bookDetails,
-        required this.searchInfo,
+        required this.volumeInfo,
     });
 
     factory BookBookDB.fromJson(Map<String, dynamic> json) => BookBookDB(
@@ -22,8 +20,7 @@ class BookBookDB {
         id: json["id"],
         etag: json["etag"],
         selfLink: json["selfLink"],
-        bookDetails: BookBookDetailsDB.fromJson(json["bookDetails"]),
-        searchInfo: json["searchInfo"],
+        volumeInfo: BookBookDetailsDB.fromJson(json["volumeInfo"]),
     );
 
     Map<String, dynamic> toJson() => {
@@ -31,7 +28,6 @@ class BookBookDB {
         "id": id,
         "etag": etag,
         "selfLink": selfLink,
-        "bookDetails": bookDetails.toJson(),
-        "searchInfo": searchInfo,
+        "volumeInfo": volumeInfo.toJson(),
     };
 }

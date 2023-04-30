@@ -7,7 +7,6 @@ class Book {
     final String etag;
     final String selfLink;
     final BookDetails volumeInfo;
-    final String searchInfo;
 
     Book({
         required this.kind,
@@ -15,6 +14,5 @@ class Book {
         required this.etag,
         required this.selfLink,
         required this.volumeInfo,
-        required this.searchInfo,
     });
 }
