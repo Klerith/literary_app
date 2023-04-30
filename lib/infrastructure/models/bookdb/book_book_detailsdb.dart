@@ -1,7 +1,6 @@
 
 class BookBookDetailsDB {
     final String title;
-    final String isbn;
     final List<String> authors;
     final String publisher;
     final String publishedDate;
@@ -18,7 +17,6 @@ class BookBookDetailsDB {
 
     BookBookDetailsDB({
         required this.title,
-        required this.isbn,
         required this.authors,
         required this.publisher,
         required this.publishedDate,
@@ -37,7 +35,6 @@ class BookBookDetailsDB {
     factory BookBookDetailsDB.fromJson(Map<String, dynamic> json) => BookBookDetailsDB(
         title: json["title"],
         authors: List<String>.from(json["authors"].map((x) => x)),
-        isbn: json["isbn"] ?? '',
         publisher: json["publisher"] ?? '',
         publishedDate:json["publishedDate"],
         description: json["description"] ?? '',

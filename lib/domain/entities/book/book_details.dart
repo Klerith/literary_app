@@ -31,26 +31,3 @@ class BookDetails {
     required this.subtitle,
   });
 }
-
-class IndustryIdentifier {
-    final Type type;
-    final String identifier;
-
-    IndustryIdentifier({
-        required this.type,
-        required this.identifier,
-    });
-}
-
-enum Type { ISBN_13, ISBN_10 }
-final typeValues = EnumValues({
-    "ISBN_10": Type.ISBN_10,
-    "ISBN_13": Type.ISBN_13
-});
-
-class EnumValues<T> {
-    Map<String, T> map;
-    late Map<T, String> reverseMap;
-
-    EnumValues(this.map);
-}
